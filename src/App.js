@@ -1,5 +1,5 @@
 import React from 'react'
-import { HashRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 // import EventsPage from './Pages/EventsPage'
 import Events from './Components/Events'
@@ -12,7 +12,7 @@ import ClarificationText from './Components/ClarificationText'
 
 function App() {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />}></Route>
@@ -25,7 +25,7 @@ function App() {
         <Route path="*" element={<ErrorPage />}></Route>
       </Routes>
       <Footer />
-    </HashRouter>
+    </BrowserRouter>
   )
 }
 
