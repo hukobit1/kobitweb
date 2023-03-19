@@ -1,0 +1,11 @@
+{
+  "theme_color": "#ffffff",
+  "background_color": "#212529",
+  "display": "browser",
+  "scope": "/",
+  "start_url": "/",
+  "name": "Konumsal Bilgi Topluluğu",
+  "short_name": "KOBIT",
+  "description": "Topluluk Resmi Web Sayfası"
+
+}
