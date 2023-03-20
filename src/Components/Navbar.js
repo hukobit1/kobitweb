@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import logo from '../Assets/Images/Logo/Logo_2.png'
-import flowerLogo from '../Assets/Images/Logo/Flowerlogo.png'
 
 function Navbar() {
   return (
@@ -11,20 +10,15 @@ function Navbar() {
         <Link to="/" style={{ textDecoration: 'none' }}>
           <div className="navbar-brand " href="#">
             <img
-              src={flowerLogo}
-              alt="Logo"
-              width="55"
-              height="55"
-              className="rounded mx-auto d-inline-block sideLogo"
-            />
-            <img
               src={logo}
               alt="Logo"
               width="100"
               height="100"
               className="rounded mx-auto d-inline-block mainLogo"
             />
-            <h3 className="d-inline-block">Konumsal Bilgi Topluluğu</h3>
+            <h3 className="d-inline-block brandName">
+              Konumsal Bilgi Topluluğu
+            </h3>
           </div>
         </Link>
         <button
