@@ -1,10 +1,12 @@
-import Hero from './Hero'
+// import Hero from './Hero'
 import MainContent from './MainContent'
+import Carousel from './Carousel'
 
 function Home() {
   return (
     <>
-      <Hero />
+      <Carousel />
+      {/* <Hero /> */}
       <MainContent />
     </>
   )

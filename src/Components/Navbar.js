@@ -81,7 +81,7 @@ function Navbar() {
             >
               <a
                 className="btn btn-outline-primary"
-                href="https://forms.gle/FKpwvgjgxDMKqLvWA"
+                href="https://docs.google.com/forms/d/e/1FAIpQLSdIeIVOo_xQIdMHhG9KOEXeqSGwo2JxkFIelsP8jeMO6MtftA/viewform"
                 role="button"
                 target="_blank"
                 rel="noreferrer"

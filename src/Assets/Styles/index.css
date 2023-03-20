@@ -10,3 +10,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.carousel .carousel-item {
+  height: 45vh;
+}
+
+p {
+  text-align: justify;
+}
+
+.list-group-item-primary {
+  color: #050505;
+}
+
+.list-group-flush .list-group-item {
+  background-color: #cff4fc47;
+}
