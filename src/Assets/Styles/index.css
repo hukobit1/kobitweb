@@ -11,10 +11,7 @@ code {
     monospace;
 }
 
-.carousel .carousel-item {
-  height: 45vh;
-}
-
+/* !!BOOTSTRAP OVERWRITE */
 p {
   text-align: justify;
 }
@@ -25,4 +22,14 @@ p {
 
 .list-group-flush .list-group-item {
   background-color: #cff4fc47;
+}
+
+.navbar {
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+}
+
+/* # BOOTSTRAP MODIFY */
+.carousel .carousel-item {
+  max-height: 70vh;
 }
