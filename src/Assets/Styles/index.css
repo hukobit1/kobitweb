@@ -33,3 +33,52 @@ p {
 .carousel .carousel-item {
   max-height: 70vh;
 }
+
+/* CUSTOM CLASSES */
+.mainLogo {
+  animation: 3s appear forwards ease;
+}
+
+.sideLogo {
+  animation: 3s move forwards ease;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    top: 0;
+    left: 1rem;
+  }
+
+  80% {
+    opacity: 1;
+    top: 0;
+    left: 1rem;
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0.5rem);
+  }
+}
+
+@keyframes move {
+  0% {
+    opacity: 0;
+    top: 0;
+    left: 10rem;
+  }
+
+  80% {
+    opacity: 0;
+    top: 0;
+    left: 10rem;
+    transform: translateX(200%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(25%);
+  }
+}
