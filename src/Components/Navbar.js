@@ -1,19 +1,19 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import logo from '../Assets/Images/Logo/Logo_2.png'
+import logo from '../Assets/Images/Logo/Logo_70q.webp'
 
 function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <div className="container-fluid">
+      <div className="container-fluid pb-3 pt-3">
         <Link to="/" style={{ textDecoration: 'none' }}>
           <div className="navbar-brand " href="#">
             <img
               src={logo}
               alt="Logo"
-              width="100"
-              height="100"
+              width="70"
+              height="70"
               className="rounded mx-auto d-inline-block mainLogo"
             />
             <h3 className="d-inline-block brandName">
