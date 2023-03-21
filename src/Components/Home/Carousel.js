@@ -1,5 +1,5 @@
 import React from 'react'
-import img2 from '../../Assets/Images/CarouselImages/Carousel_img_1.png'
+import img2 from '../../Assets/Images/CarouselImages/Aaaa.png'
 
 function Carousel() {
   return (
