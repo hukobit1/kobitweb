@@ -8,7 +8,7 @@ function Navbar() {
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid pb-3 pt-3">
         <Link to="/" style={{ textDecoration: 'none' }}>
-          <div className="navbar-brand " href="#">
+          <div className="navbar-brand" href="#">
             <img
               src={logo}
               alt="Logo"

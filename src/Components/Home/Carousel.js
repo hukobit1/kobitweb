@@ -1,4 +1,5 @@
 import React from 'react'
+import img2 from '../../Assets/Images/CarouselImages/Carousel_img_1.png'
 
 function Carousel() {
   return (
@@ -6,6 +7,7 @@ function Carousel() {
       id="carouselExampleCaptions"
       className="carousel slide"
       data-bs-ride="carousel"
+      data-touch="true"
     >
       <div className="carousel-indicators">
         <button
@@ -31,11 +33,7 @@ function Carousel() {
       </div>
       <div className="carousel-inner">
         <div className="carousel-item active">
-          <img
-            src="https://mdbootstrap.com/img/Photos/Slides/img%20(15).jpg"
-            className="d-block w-100"
-            alt="..."
-          />
+          <img src={img2} className="d-block w-100" alt="..." />
           <div className="carousel-caption d-none d-md-block">
             <h5>First slide label</h5>
             <p className="text-center">

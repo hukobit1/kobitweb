@@ -6,7 +6,7 @@ function MainContent() {
       <div className="row d-inline-block">
         <div className="col d-block">
           <div>
-            <ul className="list-group mb-3">
+            <ul className="list-group mb-3 mt-3">
               <li className="list-group-item list-group-item-primary bg-default">
                 <p className="fw-bold fs-5 text-center">
                   Konumsal bilgi nedir?

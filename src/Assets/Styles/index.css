@@ -35,15 +35,46 @@ p {
   max-height: 70vh;
 }
 
+/* !!! REACT SLICK OVERWRITE*/
+.slick-slide img {
+  max-height: 70vh;
+}
+
+.slick-dots {
+  /* margin-bottom: 2rem; */
+  /* bottom: 0!important; */
+}
+
 /* CUSTOM CLASSES */
 .brandName {
   animation: 1.9s move_left forwards ease-in;
+  padding-left: 1rem;
+  position: relative;
+  top: 3px;
+}
+
+.mainLogo {
+  position: relative;
+  z-index: 2;
+}
+
+.carouselItem {
+  position: relative;
+  max-height: 70vh;
+}
+
+.carouselCaption {
+  position: absolute;
+  color: white;
+  left: 50%;
+  bottom: 10%;
+  transform: translateX(-50%);
 }
 
 @keyframes move_left {
   0% {
     opacity: 0;
-    transform: translateX(-100%);
+    transform: translateX(-5.5rem);
   }
 
   100% {
