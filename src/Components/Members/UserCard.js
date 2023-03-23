@@ -5,7 +5,7 @@ import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
 const UserCard = ({ user }) => {
   return (
-    <Col xs={12} sm={6} lg={4} className="p-3 p-md-3 p-lg-4 p-xl-5">
+    <Col xs={6} sm={4} lg={3} className="p-2 p-md-3 p-xl-4">
       <Card>
         <Card.Img variant="top" src={user.photo} />
         <Card.Body>
