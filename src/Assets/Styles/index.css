@@ -35,14 +35,8 @@ p {
   max-height: 70vh;
 }
 
-/* !!! REACT SLICK OVERWRITE*/
-.slick-slide img {
-  max-height: 70vh;
-}
-
-.slick-dots {
-  /* margin-bottom: 2rem; */
-  /* bottom: 0!important; */
+.MembersRow {
+  justify-content: space-evenly;
 }
 
 /* CUSTOM CLASSES */

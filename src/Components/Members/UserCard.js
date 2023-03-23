@@ -5,8 +5,8 @@ import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
 const UserCard = ({ user }) => {
   return (
-    <Col xs={12} sm={6} md={4}>
-      <Card className="my-3">
+    <Col xs={12} sm={6} lg={4} className="p-3 p-md-3 p-lg-4 p-xl-5">
+      <Card>
         <Card.Img variant="top" src={user.photo} />
         <Card.Body>
           <div
@@ -22,7 +22,10 @@ const UserCard = ({ user }) => {
             </a>
           </div>
 
-          <Card.Text>Etkinlik Düzenleme Birimi</Card.Text>
+          {/* <Card.Text>Etkinlik Düzenleme Birimi</Card.Text> */}
+          <Card.Subtitle className="mb-2 text-muted">
+            Etkinlik Düzenleme Birimi
+          </Card.Subtitle>
         </Card.Body>
       </Card>
     </Col>

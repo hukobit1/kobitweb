@@ -87,7 +87,7 @@ function Footer() {
               <div className="col" style={{ maxWidth: '46px' }}>
                 <button type="button" className="btn btn-secondary">
                   <a
-                    href="https://github.com/hukobit"
+                    href="https://github.com/fioresglobal/hukobit.github.io"
                     className="link-dark"
                     target="_blank"
                     rel="noreferrer"

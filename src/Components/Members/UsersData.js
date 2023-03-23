@@ -15,13 +15,11 @@ import Çağrıhan from '../../Assets/Images/MemberPictures/Çağrıhan.jpg'
 
 /**
  * users = {
- *   yonetim kurulu : []
+ *   bolumAdi(yonetim kurulu) : []
  *   denetleme kurulu : []
  *   topluluk baskani : []
  * }
- */
 
-/**
  * bolumAdi: {
     id: string;
     name: string;
