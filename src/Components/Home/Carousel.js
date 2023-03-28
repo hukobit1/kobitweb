@@ -1,7 +1,15 @@
-import React from 'react'
-import img2 from '../../Assets/Images/CarouselImages/Aaaa.png'
+import React, { useState, useEffect } from 'react';
 
 function Carousel() {
+  const [images, setImages] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:8000/api/v1/slider-images/')
+      .then(response => response.json())
+      .then(data => setImages(data))
+      .catch(error => console.log(error));
+  }, []);
+
   return (
     <div
       id="carouselExampleCaptions"
@@ -10,63 +18,28 @@ function Carousel() {
       data-touch="true"
     >
       <div className="carousel-indicators">
-        <button
-          type="button"
-          data-bs-target="#carouselExampleCaptions"
-          data-bs-slide-to="0"
-          className="active"
-          aria-current="true"
-          aria-label="Slide 1"
-        ></button>
-        <button
-          type="button"
-          data-bs-target="#carouselExampleCaptions"
-          data-bs-slide-to="1"
-          aria-label="Slide 2"
-        ></button>
-        <button
-          type="button"
-          data-bs-target="#carouselExampleCaptions"
-          data-bs-slide-to="2"
-          aria-label="Slide 3"
-        ></button>
+        {images.map((image, index) => (
+          <button
+            key={index}
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide-to={index}
+            className={index === 0 ? 'active' : ''}
+            aria-current={index === 0 ? 'true' : 'false'}
+            aria-label={`Slide ${index + 1}`}
+          ></button>
+        ))}
       </div>
       <div className="carousel-inner">
-        <div className="carousel-item active">
-          <img src={img2} className="d-block w-100" alt="..." />
-          <div className="carousel-caption d-none d-md-block">
-            {/* <h5>First slide label</h5> */}
-            {/* <p className="text-center">
-              Some representative placeholder content for the first slide.
-            </p> */}
+        {images.map((image, index) => (
+          <div key={index} className={`carousel-item ${index === 0 ? 'active' : ''}`}>
+            <img src=`http://localhost:8000/{image.image.url}` className="d-block w-100" alt={image.title} />
+            <div className="carousel-caption d-none d-md-block">
+             {/* <h5>{image.title}</h5>
+              <p className="text-center">{image.description}</p> */}
+            </div>
           </div>
-        </div>
-        <div className="carousel-item">
-          <img
-            src="https://mdbootstrap.com/img/Photos/Slides/img%20(22).jpg"
-            className="d-block w-100"
-            alt="..."
-          />
-          <div className="carousel-caption d-none d-md-block">
-            {/* <h5>Second slide label</h5>
-            <p className="text-center">
-              Some representative placeholder content for the second slide.
-            </p> */}
-          </div>
-        </div>
-        <div className="carousel-item">
-          <img
-            src="https://mdbootstrap.com/img/Photos/Slides/img%20(23).jpg"
-            className="d-block w-100"
-            alt="..."
-          />
-          <div className="carousel-caption d-none d-md-block">
-            {/* <h5>Third slide label</h5>
-            <p className="text-center">
-              Some representative placeholder content for the third slide.
-            </p> */}
-          </div>
-        </div>
+        ))}
       </div>
       <button
         className="carousel-control-prev"
@@ -87,7 +60,8 @@ function Carousel() {
         <span className="visually-hidden">Next</span>
       </button>
     </div>
-  )
+  );
 }
 
-export default Carousel
+export default Carousel;
+

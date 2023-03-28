@@ -5,7 +5,7 @@ function Event(props) {
     <div className="col-lg-4 mb-3 d-flex align-items-stretch">
       <div className="card">
         <img
-          src={props.url}
+          src=`http://localhost:8000/{props.url}`
           className="card-img-top"
           alt="Etkinlik Resmi"
         ></img>

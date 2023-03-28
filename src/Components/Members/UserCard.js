@@ -7,7 +7,7 @@ const UserCard = ({ user }) => {
   return (
     <Col xs={6} sm={4} lg={3} className="p-2 p-md-3 p-xl-4">
       <Card>
-        <Card.Img variant="top" src={user.photo} />
+        <Card.Img variant="top" src=`http://localhost:8000/{user.photo.url}` />
         <Card.Body>
           <div
             style={{
@@ -17,7 +17,7 @@ const UserCard = ({ user }) => {
             }}
           >
             <Card.Title>{user.name}</Card.Title>
-            <a href={user.linkedin} target="_blank" rel="noopener noreferrer">
+            <a href={user.linkedin_url} target="_blank" rel="noopener noreferrer">
               <FontAwesomeIcon icon={faLinkedin} size="2x" />
             </a>
           </div>
