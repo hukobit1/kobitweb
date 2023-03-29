@@ -2,7 +2,7 @@ import React from 'react'
 import { Row } from 'react-bootstrap'
 import UserCard from './UserCard'
 
-const UserList = ({ category }) => {
+const UserList = ({ users }) => {
   
   return (
     <>

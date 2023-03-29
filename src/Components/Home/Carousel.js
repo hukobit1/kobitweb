@@ -4,7 +4,7 @@ function Carousel() {
   const [images, setImages] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:8000/api/v1/slider-images/')
+    fetch('/api/v1/slider-images/')
       .then(response => response.json())
       .then(data => setImages(data))
       .catch(error => console.log(error));
@@ -33,7 +33,7 @@ function Carousel() {
       <div className="carousel-inner">
         {images.map((image, index) => (
           <div key={index} className={`carousel-item ${index === 0 ? 'active' : ''}`}>
-            <img src=`http://localhost:8000/{image.image.url}` className="d-block w-100" alt={image.title} />
+            <img src={ image.image.url } className="d-block w-100" alt={image.title} />
             <div className="carousel-caption d-none d-md-block">
              {/* <h5>{image.title}</h5>
               <p className="text-center">{image.description}</p> */}

@@ -6,7 +6,7 @@ const App = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch('api/v1/members');
+      const response = await fetch('/api/v1/members');
       const data = await response.json();
       // Sort users by category
       const sortedUsers = {
