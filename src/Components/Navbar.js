@@ -4,6 +4,19 @@ import { Link } from 'react-router-dom'
 import logo from '../Assets/Images/Logo/Logo_70q.webp'
 
 function Navbar() {
+  const [meta, setMeta] = useState({});
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch('/api/v1/meta/?format=json');
+      const data = await response.json();
+      // Sort users by category
+      setMeta(data);
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid pb-3 pt-3">
@@ -83,7 +96,7 @@ function Navbar() {
             >
               <a
                 className="btn btn-outline-primary"
-                href="https://docs.google.com/forms/d/e/1FAIpQLSdIeIVOo_xQIdMHhG9KOEXeqSGwo2JxkFIelsP8jeMO6MtftA/viewform"
+                href={ meta.url }
                 role="button"
                 target="_blank"
                 rel="noreferrer"

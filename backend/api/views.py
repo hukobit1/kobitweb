@@ -4,7 +4,7 @@ from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from .models import SliderImage, Member, Event
-from .serializers import SliderImagesSerializer, MembersSerializer, EventSerializer
+from .serializers import SliderImagesSerializer, MembersSerializer, EventSerializer, MetaSerializer
 
 # Create your views here.
 
@@ -35,6 +35,15 @@ class EventsView(APIView):
         if not events:
             return Response(status=status.HTTP_404_NOT_FOUND)
         serializer = EventSerializer(events, many=True)
+        return Response(serializer.data)
+        
+
+class MetaView(APIView):
+    def get(self, request):
+        document = Meta.objects.first()
+        if not document:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+        serializer = MetaSerializer(document, many=True)
         return Response(serializer.data)
 
 

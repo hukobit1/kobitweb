@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import SliderImage, Member, Event
+from .models import SliderImage, Member, Event, Meta
 
 class SliderImagesSerializer(serializers.ModelSerializer):
     class Meta:
@@ -16,3 +16,9 @@ class EventSerializer(serializers.ModelSerializer):
     class Meta:
         model = Event
         fields = ('id', 'name', 'image', 'about', 'date',)
+        
+
+class MetaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Meta
+        fields = ('id', 'url', 'email',)
