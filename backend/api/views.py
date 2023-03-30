@@ -3,7 +3,7 @@ from rest_framework.views import exception_handler
 from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .models import SliderImage, Member, Event
+from .models import SliderImage, Member, Event, Meta
 from .serializers import SliderImagesSerializer, MembersSerializer, EventSerializer, MetaSerializer
 
 # Create your views here.
@@ -43,7 +43,7 @@ class MetaView(APIView):
         document = Meta.objects.first()
         if not document:
             return Response(status=status.HTTP_404_NOT_FOUND)
-        serializer = MetaSerializer(document, many=True)
+        serializer = MetaSerializer(document)
         return Response(serializer.data)
 
 
