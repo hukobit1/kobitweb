@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 
 function Footer() {
+  const [meta, setMeta] = useState({});
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch('/api/v1/meta/?format=json');

@@ -41,13 +41,13 @@ p {
 
 /* CUSTOM CLASSES */
 .brandName {
-  animation: 1.9s move_left forwards ease-in;
   padding-left: 1rem;
   position: relative;
   top: 3px;
 }
 
 .mainLogo {
+  animation: 1.9s move_left backwards ease-in;
   position: relative;
   z-index: 2;
 }
@@ -68,7 +68,7 @@ p {
 @keyframes move_left {
   0% {
     opacity: 0;
-    transform: translateX(-5.5rem);
+    transform: translateX(2.5rem);
   }
 
   100% {
