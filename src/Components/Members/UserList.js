@@ -7,9 +7,9 @@ const UserList = ({ users }) => {
   return (
     <>
       <Row className="MembersRow">
-        {users.map((user) => (
-          <UserCard key={user.id} user={user} />
-        ))}
+          {users && users.map((user) => (
+            <UserCard key={user.id} user={user} />
+          ))}
       </Row>
     </>
   )

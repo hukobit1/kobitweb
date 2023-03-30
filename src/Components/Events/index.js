@@ -7,9 +7,10 @@ function Events() {
   useEffect(() => {
     async function fetchEvents() {
       try {
-        const response = await fetch('/api/v1/events');
+        const response = await fetch('/api/v1/events/?format=json');
         const data = await response.json();
         setEvents(data);
+	console.log(data);
       } catch (error) {
         console.log(error);
       }
@@ -32,7 +33,7 @@ function Events() {
             name={event.name}
             date={event.date}
             about={event.about}
-            url={event.image.url}
+            url={event.image }
             id={event.id}
           />
         ))}

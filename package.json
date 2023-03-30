@@ -13,7 +13,7 @@
     "react-dom": "^17.0.2",
     "react-fontawesome": "^1.7.1",
     "react-router-dom": "^6.2.2",
-    "react-scripts": "^5.0.0",
+    "react-scripts": "^5.0.1",
     "uuid": "^9.0.0"
   },
   "scripts": {
@@ -24,9 +24,7 @@
     "prettier": "prettier --ignore-path .gitignore --write \"**/*.+(js|json|css|html)\""
   },
   "eslintConfig": {
-    "extends": [
-      "react-app"
-    ]
+    "extends": []
   },
   "browserslist": {
     "production": [

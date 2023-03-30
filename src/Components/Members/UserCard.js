@@ -7,7 +7,7 @@ const UserCard = ({ user }) => {
   return (
     <Col xs={6} sm={4} lg={3} className="p-2 p-md-3 p-xl-4">
       <Card>
-        <Card.Img variant="top" src={ user.photo.url } />
+        <Card.Img variant="top" src={ "http://" + window.location.hostname + user.photo } />
         <Card.Body>
           <div
             style={{
