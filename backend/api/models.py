@@ -32,9 +32,16 @@ class Event(models.Model):
 	def __str__(self):
 		return self.name
 
-class Meta(models.Model):
+class SiteData(models.Model):
 	url = models.CharField(max_length=500)
 	email = models.CharField(max_length=500)
+	terms = models.TextField()
+	linkedin_url = models.CharField(max_length=255)
+	twitter_url = models.CharField(max_length=255)
+	instagram_url = models.CharField(max_length=255)
+	github_url = models.CharField(max_length=255)
+	discord_url = models.CharField(max_length=255)
+	
 	
 	def __str__(self):
-		return "Meta"
+		return "Site Data"

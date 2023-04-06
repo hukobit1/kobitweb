@@ -1,12 +1,13 @@
 import React from 'react'
 
 function Event(props) {
+  const apiUrl = 'http://localhost:8000';
   return (
     <div className="col-lg-4 mb-3 d-flex align-items-stretch">
       <div className="card">
         <img
-          src={ "http://" + window.location.hostname +  props.url }
-          className="card-img-top"
+          src={ apiUrl + props.url }
+          className="card-img-top event-image"
           alt="Etkinlik Resmi"
         ></img>
         <div className="card-body d-flex flex-column">

@@ -5,10 +5,11 @@ import logo from '../Assets/Images/Logo/Logo_70q.webp'
 
 function Navbar() {
   const [meta, setMeta] = useState({});
+  const apiUrl = 'http://localhost:8000';
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch('/api/v1/meta/?format=json');
+      const response = await fetch(`${apiUrl}/api/v1/meta/?format=json` , { mode: "cors" } );
       const data = await response.json();
       // Sort users by category
       setMeta(data);

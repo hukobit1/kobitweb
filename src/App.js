@@ -9,6 +9,7 @@ import ErrorPage from './Components/ErrorPage'
 import Navbar from './Components/Navbar'
 import Footer from './Components/Footer'
 import ClarificationText from './Components/ClarificationText'
+import Terms from './Components/Terms'
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           path="kvkk-aydinlatma-metni"
           element={<ClarificationText />}
         ></Route>
+        <Route path="terms" element={<Terms />}></Route>
         <Route path="*" element={<ErrorPage />}></Route>
       </Routes>
       <Footer />

@@ -1,9 +1,9 @@
 from django.contrib import admin
-from .models import SliderImage, Member, Event, Meta
+from .models import SliderImage, Member, Event, SiteData
 
 # Register your models here.
 
 admin.site.register(SliderImage)
 admin.site.register(Member)
 admin.site.register(Event)
-admin.site.register(Meta)
+admin.site.register(SiteData)

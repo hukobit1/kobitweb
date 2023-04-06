@@ -3,14 +3,14 @@ import Event from './Event';
 
 function Events() {
   const [events, setEvents] = useState([]);
+  const apiUrl = 'http://localhost:8000'
 
   useEffect(() => {
     async function fetchEvents() {
       try {
-        const response = await fetch('/api/v1/events/?format=json');
+        const response = await fetch(`${apiUrl}/api/v1/events/?format=json`, { mode: 'cors' });
         const data = await response.json();
         setEvents(data);
-	console.log(data);
       } catch (error) {
         console.log(error);
       }

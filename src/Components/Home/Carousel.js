@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 
 function Carousel() {
   const [images, setImages] = useState([]);
+  const apiUrl = 'http://localhost:8000';
 
   useEffect(() => {
-    fetch('/api/v1/slider-images/?format=json')
+    fetch(`${apiUrl}/api/v1/slider-images/?format=json`, { mode: "cors" } )
       .then(response => response.json())
       .then(data => {
 	      setImages(data);
@@ -20,7 +21,7 @@ function Carousel() {
       data-touch="true"
     >
       <div className="carousel-indicators">
-        {images.map((image, index) => (
+        {images && images.map((image, index) => (
           <button
             key={index}
             type="button"
@@ -33,9 +34,9 @@ function Carousel() {
         ))}
       </div>
       <div className="carousel-inner">
-        {images.map((image, index) => (
+        {images && images.map((image, index) => (
           <div key={index} className={`carousel-item ${index === 0 ? 'active' : ''}`}>
-            <img src={ "http://" + window.location.hostname + image.image } className="d-block w-100" alt={image.title} />
+            <img src={ apiUrl + image.image } className="d-block w-100 slider-image" alt={image.title} />
             <div className="carousel-caption d-none d-md-block">
              {/* <h5>{image.title}</h5>
               <p className="text-center">{image.description}</p> */}

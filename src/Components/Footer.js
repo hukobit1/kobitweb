@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react';
 
 function Footer() {
   const [meta, setMeta] = useState({});
+  const apiUrl = 'http://localhost:8000';
+
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch('/api/v1/meta/?format=json');
+      const response = await fetch(`${apiUrl}/api/v1/meta/?format=json`, { mode: "cors" } );
       const data = await response.json();
       // Sort users by category
       setMeta(data);
@@ -36,7 +38,7 @@ function Footer() {
               <div className="col" style={{ maxWidth: '46px' }}>
                 <button type="button" className="btn btn-secondary">
                   <a
-                    href="https://twitter.com/"
+                    href={ meta.twitter_url }
                     className="link-dark"
                     target="_blank"
                     rel="noreferrer"
@@ -57,7 +59,7 @@ function Footer() {
               <div className="col" style={{ maxWidth: '46px' }}>
                 <button type="button" className="btn btn-secondary">
                   <a
-                    href="https://www.linkedin.com/company/konumsalbilgihacettepe/?originalSubdomain=br"
+                    href={ meta.linkedin_url }
                     className="link-dark"
                     target="_blank"
                     rel="noreferrer"
@@ -78,7 +80,7 @@ function Footer() {
               <div className="col" style={{ maxWidth: '46px' }}>
                 <button type="button" className="btn btn-secondary">
                   <a
-                    href="https://www.instagram.com/konumsalbilgi/"
+                    href={ meta.instagram_url }
                     className="link-dark"
                     target="_blank"
                     rel="noreferrer"
@@ -99,7 +101,7 @@ function Footer() {
               <div className="col" style={{ maxWidth: '46px' }}>
                 <button type="button" className="btn btn-secondary">
                   <a
-                    href="https://github.com/fioresglobal/hukobit.github.io"
+                    href={ meta.github_url }
                     className="link-dark"
                     target="_blank"
                     rel="noreferrer"
@@ -120,7 +122,7 @@ function Footer() {
               <div className="col" style={{ maxWidth: '46px' }}>
                 <button type="button" className="btn btn-secondary">
                   <a
-                    href="https://discord.gg/E2zAD5BtgT"
+                    href={ meta.discord_url }
                     className="link-dark"
                     target="_blank"
                     rel="noreferrer"
@@ -199,6 +201,11 @@ function Footer() {
                   <h6> 39.8655353°N / 32.733868026627015°E </h6>
                 </li>
               </ul>
+            </div>
+            <div className="col-lg-3 col-md-auto mb-4 mb-md-0 align-self-end" >
+              <a href="/terms" className="text-decoration-none text-white">
+                UYELI AYDINLATMA METNI
+              </a>
             </div>
           </div>
         </section>

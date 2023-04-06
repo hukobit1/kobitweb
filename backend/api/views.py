@@ -3,8 +3,8 @@ from rest_framework.views import exception_handler
 from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .models import SliderImage, Member, Event, Meta
-from .serializers import SliderImagesSerializer, MembersSerializer, EventSerializer, MetaSerializer
+from .models import SliderImage, Member, Event, SiteData
+from .serializers import SliderImagesSerializer, MembersSerializer, EventSerializer, SiteDataSerializer
 
 # Create your views here.
 
@@ -38,12 +38,12 @@ class EventsView(APIView):
         return Response(serializer.data)
         
 
-class MetaView(APIView):
+class SiteDataView(APIView):
     def get(self, request):
-        document = Meta.objects.first()
+        document = SiteData.objects.first()
         if not document:
             return Response(status=status.HTTP_404_NOT_FOUND)
-        serializer = MetaSerializer(document)
+        serializer = SiteDataSerializer(document)
         return Response(serializer.data)
 
 
