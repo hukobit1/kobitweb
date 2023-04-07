@@ -3,7 +3,7 @@ import UserList from './UserList'
 
 const App = () => {
   const [users, setUsers] = useState({});
-  const apiUrl = window.location.hostname;
+  const apiUrl = 'http://' + window.location.hostname;
 
   useEffect(() => {
     const fetchData = async () => {

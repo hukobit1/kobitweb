@@ -3,7 +3,7 @@ import Event from './Event';
 
 function Events() {
   const [events, setEvents] = useState([]);
-  const apiUrl = window.location.hostname;
+  const apiUrl = 'http://' + window.location.hostname;
 
   useEffect(() => {
     async function fetchEvents() {

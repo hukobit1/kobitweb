@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 function Footer() {
   const [meta, setMeta] = useState({});
-  const apiUrl = window.location.hostname;
+  const apiUrl = 'http://' + window.location.hostname;
 
   useEffect(() => {
     const fetchData = async () => {
