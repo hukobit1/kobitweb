@@ -1,7 +1,7 @@
 import React from 'react'
 
 function Event(props) {
-  const apiUrl = 'http://localhost:8000';
+  const apiUrl = window.location.hostname;
   return (
     <div className="col-lg-4 mb-3 d-flex align-items-stretch">
       <div className="card">
