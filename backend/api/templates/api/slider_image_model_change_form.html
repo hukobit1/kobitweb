@@ -1,0 +1,28 @@
+{% extends "admin/change_form.html" %}
+
+{% load i18n admin_urls static admin_modify %}
+{% load cropping_tags %}
+
+{% block extrahead %}
+    {{ block.super }}
+    {{ form.media }}
+    {% cropping_stylesheet %}
+{% endblock %}
+
+{% block content %}
+    {{ block.super }}
+    <div id="cropping-wrapper">
+        {% cropping_field_set "Original image" "image" %}
+            {% if original_image %}
+                <img src="{{ original_image.url }}" alt="{{ original_image.name }}" id="cropping-image">
+            {% endif %}
+
+            {% cropping_field "cropping" "image" %}
+        {% endcropping_field_set %}
+    </div>
+{% endblock %}
+
+{% block extra_js %}
+    {{ block.super }}
+    {% cropping_javascript %}
+{% endblock %}

@@ -33,6 +33,9 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'api',
+    'imagekit',
+    'image_cropping',
+    'easy_thumbnails',
     'corsheaders',
     'rest_framework',
     'django.contrib.admin',
@@ -62,10 +65,13 @@ CORS_ALLOW_ALL_ORIGINS = True
 
 ROOT_URLCONF = 'hukobit.urls'
 
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+        	os.path.join(BASE_DIR, 'api/templates/api'),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -129,15 +135,20 @@ USE_L10N = True
 USE_TZ = True
 
 
+THUMBNAIL_BACKENDS = ['image_cropping.backends.easy_thumbs.EasyThumbnailsBackend']
+
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+
 STATIC_URL = '/static/'
-STATIC_DIRS = [
-	os.path.join(BASE_DIR, 'api/static'),
-        os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [
+        os.path.join(BASE_DIR, 'static'),
 ]
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
