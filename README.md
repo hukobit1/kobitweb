@@ -1,6 +1,6 @@
 <h1 align="center">Konumsal Bilgi Topluluğu Web Sayfası</h1>
 
-<p>Bu github reposu, Hacettepe Üniversitesi Konumsal Bilgi Topluluğu’ nun internet sayfasını barındırmaktadır. Sayfanın ilerleyen dönemlerde tekrar kullanılması durumunda, daha kolay anlaşılması ve yönetilmesi amacıyla teknik detaylar içermektedir. Ek olarak proje hakkında genel bilgi ve ilerleyen dönemlerde yapılması planlanan güncelleştirmeleri de barındırmaktadır. </p>
+<p>Bu github reposu, Hacettepe Üniversitesi  Konumsal Bilgi Topluluğu’ nun internet sayfasını barındırmaktadır. Sayfanın ilerleyen dönemlerde tekrar kullanılması durumunda, daha kolay anlaşılması ve yönetilmesi amacıyla teknik detaylar içermektedir. Ek olarak proje hakkında genel bilgi ve ilerleyen dönemlerde yapılması planlanan güncelleştirmeleri de barındırmaktadır. </p>
 </br>
 </br>
 
