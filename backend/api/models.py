@@ -9,7 +9,7 @@ from image_cropping import ImageRatioField, ImageCroppingMixin
 class SliderImage(ImageCroppingMixin, models.Model):
 	# image= models.ImageField(upload_to='static/uploads/')
 	image = ImageCropField(upload_to='static/uploads/')
-	cropping = ImageRatioField('image', '900x400')
+	cropping = ImageRatioField('image', '900x400', free_crop=True)
 	title = models.CharField(max_length=255)
 	description = models.CharField(max_length=500)
 	
@@ -22,7 +22,7 @@ class Member(models.Model):
 	position = models.CharField(max_length=255)
 	category = models.CharField(max_length=50, null=True, blank=True)
 	photo= models.ImageField(upload_to='static/uploads/')
-	cropping = ImageRatioField('photo', '200x200')
+	cropping = ImageRatioField('photo', '200x200', free_crop=True)
 	linkedin_url = models.CharField(max_length=255, blank=True, null=True)
 	
 	def __str__(self):
@@ -35,7 +35,7 @@ class Event(models.Model):
 	date = models.DateTimeField()
 	about = models.TextField()
 	image = models.ImageField(upload_to='static/uploads/')
-	cropping = ImageRatioField('image', '250x250')
+	cropping = ImageRatioField('image', '250x250', free_crop=True)
 	
 	def __str__(self):
 		return self.name
