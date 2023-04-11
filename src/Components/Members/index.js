@@ -3,7 +3,7 @@ import UserList from './UserList'
 
 const App = () => {
   const [users, setUsers] = useState({});
-  const apiUrl = 'http://' + window.location.hostname;
+  const apiUrl = process.env.REACT_APP_API_ENDPOINT;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,34 +23,35 @@ const App = () => {
 
   return (
     <div className="container">
-      { users.yonetimKurulu && 
-        <div className="text-opacity-75 text-center">
-          <h1 className="text-center display-2">
-            YÖNETİM KURULU
-            <hr />
-          </h1>
-        </div>
-      }
-      { users.yonetimKurulu &&  <UserList users={users.yonetimKurulu} /> }
-      { users.denetlemeKurulu && 
-        <div className="text-opacity-75 text-center">
-          <h1 className="text-center display-2">
-            DENETIM KURULU
-            <hr />
-          </h1>
-        </div>
-      }
-      { users.denetlemeKurulu &&  <UserList users={users.denetlemeKurulu} /> }
-      { users.toplulukBaskani &&  
-      	<div className="text-opacity-75 text-center">
-          <h1 className="text-center display-2">
-            TOPLULUK BAŠKANI
-            <hr />
-          </h1>
-        </div>
-      }
-      { users.toplulukBaskani &&  <UserList users={users.toplulukBaskani} /> }
+  { users.yonetimKurulu && users.yonetimKurulu.length > 0 &&
+    <div className="text-opacity-75 text-center">
+      <h1 className="text-center display-2">
+        YÖNETİM KURULU
+        <hr />
+      </h1>
     </div>
+  }
+  { users.yonetimKurulu && users.yonetimKurulu.length > 0 && <UserList users={users.yonetimKurulu} /> }
+  { users.denetlemeKurulu && users.denetlemeKurulu.length > 0 &&
+    <div className="text-opacity-75 text-center">
+      <h1 className="text-center display-2">
+        DENETIM KURULU
+        <hr />
+      </h1>
+    </div>
+  }
+  { users.denetlemeKurulu && users.denetlemeKurulu.length > 0 && <UserList users={users.denetlemeKurulu} /> }
+  { users.toplulukBaskani && users.toplulukBaskani.length > 0 && 
+  	<div className="text-opacity-75 text-center">
+      <h1 className="text-center display-2">
+        TOPLULUK BAŞKANI
+        <hr />
+      </h1>
+    </div>
+  }
+  { users.toplulukBaskani && users.toplulukBaskani.length > 0 && <UserList users={users.toplulukBaskani} /> }
+</div>
+
   )
 }
 

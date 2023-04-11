@@ -1,10 +1,10 @@
 import React from 'react'
 
 function Event(props) {
-  const apiUrl = window.location.hostname;
+  const apiUrl = process.env.REACT_APP_API_ENDPOINT;
   return (
     <div className="col-lg-4 mb-3 d-flex align-items-stretch">
-      <div className="card">
+      <div className="card w-100">
         <img
           src={ apiUrl + props.url }
           className="card-img-top event-image"

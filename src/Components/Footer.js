@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 function Footer() {
   const [meta, setMeta] = useState({});
-  const apiUrl = 'http://' + window.location.hostname;
+  const apiUrl = process.env.REACT_APP_API_ENDPOINT;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -38,7 +38,7 @@ function Footer() {
               <div className="col" style={{ maxWidth: '46px' }}>
                 <button type="button" className="btn btn-secondary">
                   <a
-                    href={ meta.twitter_url }
+                    href="https://twitter.com/"
                     className="link-dark"
                     target="_blank"
                     rel="noreferrer"
@@ -59,7 +59,7 @@ function Footer() {
               <div className="col" style={{ maxWidth: '46px' }}>
                 <button type="button" className="btn btn-secondary">
                   <a
-                    href={ meta.linkedin_url }
+                    href="https://www.linkedin.com/company/konumsalbilgihacettepe/?originalSubdomain=br"
                     className="link-dark"
                     target="_blank"
                     rel="noreferrer"
@@ -80,7 +80,7 @@ function Footer() {
               <div className="col" style={{ maxWidth: '46px' }}>
                 <button type="button" className="btn btn-secondary">
                   <a
-                    href={ meta.instagram_url }
+                    href="https://www.instagram.com/konumsalbilgi/"
                     className="link-dark"
                     target="_blank"
                     rel="noreferrer"
@@ -101,7 +101,7 @@ function Footer() {
               <div className="col" style={{ maxWidth: '46px' }}>
                 <button type="button" className="btn btn-secondary">
                   <a
-                    href={ meta.github_url }
+                    href="https://github.com/fioresglobal/hukobit.github.io"
                     className="link-dark"
                     target="_blank"
                     rel="noreferrer"
@@ -122,7 +122,7 @@ function Footer() {
               <div className="col" style={{ maxWidth: '46px' }}>
                 <button type="button" className="btn btn-secondary">
                   <a
-                    href={ meta.discord_url }
+                    href="https://discord.gg/E2zAD5BtgT"
                     className="link-dark"
                     target="_blank"
                     rel="noreferrer"
@@ -203,7 +203,7 @@ function Footer() {
               </ul>
             </div>
             <div className="col-lg-3 col-md-auto mb-4 mb-md-0 align-self-end" >
-              <a href="/terms" className="text-decoration-none text-white">
+              <a href="/terms" className=''>
                 UYELI AYDINLATMA METNI
               </a>
             </div>
