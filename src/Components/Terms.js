@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 function Terms(params) {
   const [meta, setMeta] = useState({});
-  const apiUrl = 'http://localhost:8000';
+  const apiUrl = process.env.REACT_APP_API_ENDPOINT;
 
   useEffect(() => {
     const fetchData = async () => {

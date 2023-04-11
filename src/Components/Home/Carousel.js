@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 function Carousel() {
   const [images, setImages] = useState([]);
-  const apiUrl = 'http://' + window.location.hostname;
+  const apiUrl = process.env.REACT_APP_API_ENDPOINT;
 
   useEffect(() => {
     fetch(`${apiUrl}/api/v1/slider-images/?format=json`, { mode: "cors" } )

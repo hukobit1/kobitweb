@@ -5,7 +5,7 @@ import logo from '../Assets/Images/Logo/Logo_70q.webp'
 
 function Navbar() {
   const [meta, setMeta] = useState({});
-  const apiUrl = 'http://' + window.location.hostname;
+  const apiUrl = process.env.REACT_APP_API_ENDPOINT;
 
   useEffect(() => {
     const fetchData = async () => {

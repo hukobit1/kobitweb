@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
 const UserCard = ({ user }) => {
-  const apiUrl = 'http://' + window.location.hostname;
+  const apiUrl = process.env.REACT_APP_API_ENDPOINT;
   return (
     <Col xs={6} sm={4} lg={3} className="p-2 p-md-3 p-xl-4">
       <Card>
