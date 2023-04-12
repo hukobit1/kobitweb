@@ -148,7 +148,7 @@ function Footer() {
             Hacettepe Üniversitesi Konumsal Bilgi Topluluğu Resmi Web Sayfası
           </h5>
         </section>
-        <section>
+        <section class="footer">
           <div className="row justify-content-center">
             <div className="col-lg-auto col-md-auto mb-4 mb-md-0">
               <section className="embed-responsive embed-responsive-1by1">
@@ -202,12 +202,12 @@ function Footer() {
                 </li>
               </ul>
             </div>
-            <div className="col-lg-3 col-md-auto mb-4 mb-md-0 align-self-end" >
-              <a href="/terms" className=''>
+          </div>
+          <div className="col-lg-3 col-md-auto mb-4 mb-md-0 align-self-end" >
+              <a href="/terms" className='contract-btn'>
                 UYELI AYDINLATMA METNI
               </a>
             </div>
-          </div>
         </section>
       </div>
     </footer>

@@ -25,7 +25,7 @@ const UserCard = ({ user }) => {
 
           {/* <Card.Text>Etkinlik Düzenleme Birimi</Card.Text> */}
           <Card.Subtitle className="mb-2 text-muted">
-            Etkinlik Düzenleme Birimi
+            {user.position}
           </Card.Subtitle>
         </Card.Body>
       </Card>

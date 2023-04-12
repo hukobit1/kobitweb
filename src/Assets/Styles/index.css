@@ -78,6 +78,22 @@ p {
 .member-image {
   width: 100%;
   height: auto;
+  
+}
+
+.contract-btn {
+  padding: 10px;
+  background-color: #6c757d;
+  border-color: #6c757d;
+  color: #212529;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.contract-btn:hover {
+	color: #212529;
 }
 
 @keyframes move_left {
@@ -89,5 +105,17 @@ p {
   100% {
     opacity: 1;
     transform: translateX(0%);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .footer {
+    position: relative;
+  }
+
+  .contract-btn {
+    position: absolute;
+    bottom: 10px;
+    right: -50px;
   }
 }
