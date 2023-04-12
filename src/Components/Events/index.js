@@ -33,7 +33,7 @@ function Events() {
             name={event.name}
             date={event.date}
             about={event.about}
-            url={event.image }
+            url={event.image_url }
             id={event.id}
           />
         ))}
