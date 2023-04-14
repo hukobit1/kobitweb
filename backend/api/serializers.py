@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import SliderImage, Member, Event, SiteData
+from .models import SliderImage, Member, Event, SiteData, PositionCategory
 
 class SliderImagesSerializer(serializers.ModelSerializer):
     image_url = serializers.SerializerMethodField()
@@ -11,13 +11,22 @@ class SliderImagesSerializer(serializers.ModelSerializer):
     def get_image_url(self, obj):
         return obj.image_url
 
+class PositionCategoriesSerializer(serializers.ModelSerializer):
+	class Meta:
+	        model = PositionCategory
+	        fields = ('id', 'name',)
+
 
 class MembersSerializer(serializers.ModelSerializer):
     image_url = serializers.SerializerMethodField()
+    category = serializers.SerializerMethodField()
 
     class Meta:
         model = Member
         fields = ('id', 'name', 'position', 'image', 'category', 'linkedin_url', 'image_url',)
+        
+    def get_category(self, obj):
+    	return obj.category.name
     
     def get_image_url(self, obj):
         return obj.image_url

@@ -78,7 +78,10 @@ p {
 .member-image {
   width: 100%;
   height: auto;
-  
+}
+
+.category-name {
+	text-transform: uppercase;
 }
 
 .contract-btn {

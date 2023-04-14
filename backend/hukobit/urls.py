@@ -18,13 +18,11 @@ from django.urls import path, include
 from django.views.generic import RedirectView
 from django.conf.urls.static import static
 from django.conf import settings
-from api.views import crop_image
 
 urlpatterns = [
     path('', RedirectView.as_view(url='/admin')),
     path('admin/', admin.site.urls),
     path('api/v1/', include('api.urls'), name='api'),
-    path('crop_image/', crop_image, name="crop_image"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 

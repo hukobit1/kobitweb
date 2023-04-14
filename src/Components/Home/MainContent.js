@@ -2,7 +2,7 @@ import React from 'react'
 
 function MainContent() {
   return (
-    <div className="container mt-5">
+    <div className="container mt-3">
       <div className="row d-inline-block">
         <div className="col d-block">
           <div>

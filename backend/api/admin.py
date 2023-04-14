@@ -1,5 +1,5 @@
 # from .forms import ProcessedImageField
-from .models import SliderImage, Member, Event, SiteData
+from .models import SliderImage, Member, Event, SiteData, PositionCategory
 from django.contrib import admin
 from django.db import models
 from django.contrib import admin
@@ -19,7 +19,5 @@ class EventModelAdmin(ImageCroppingMixin, admin.ModelAdmin):
     pass
 
 
-#admin.site.register(SliderImage, SliderImageModelAdmin)
-#admin.site.register(Member)
-#admin.site.register(Event)
+admin.site.register(PositionCategory)
 admin.site.register(SiteData)

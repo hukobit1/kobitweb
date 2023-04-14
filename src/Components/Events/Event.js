@@ -1,7 +1,15 @@
-import React from 'react'
+import React from 'react';
 
 function Event(props) {
   const apiUrl = process.env.REACT_APP_API_ENDPOINT;
+
+  const eventDate = new Date(props.date);
+  const formattedDate = eventDate.toLocaleDateString("tr-TR", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+
   return (
     <div className="col-lg-4 mb-3 d-flex align-items-stretch">
       <div className="card w-100">
@@ -12,7 +20,7 @@ function Event(props) {
         ></img>
         <div className="card-body d-flex flex-column">
           <h2> {props.name} </h2>
-          <p className="fs-6 fw-lighter fst-italic"> {props.date} </p>
+          <p className="fs-6 fw-lighter fst-italic">Tarih: {formattedDate} </p>
           <a
             className="btn btn-primary mt-auto"
             data-bs-toggle="collapse"
@@ -33,4 +41,4 @@ function Event(props) {
   )
 }
 
-export default Event
+export default Event;

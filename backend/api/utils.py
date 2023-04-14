@@ -1,4 +1,3 @@
-from django.urls import reverse
 from django.http import HttpResponseBadRequest, HttpResponse
 from django.conf import settings
 from urllib.parse import urlencode
@@ -7,6 +6,13 @@ import os
 
 
 def crop_image(image_path, cropping, type):
+    # check if files already exist - ( to improve performance )
+    file_name, ext = os.path.splitext(os.path.basename(image_path))
+    cropped_file_name = f"{file_name}_cropped{ext}"
+    cropped_file_full_path = os.path.join(settings.MEDIA_URL, type , cropped_file_name)
+    if os.path.isfile(cropped_file_full_path):
+    	return cropped_file_full_path
+    	
     image_full_path = os.path.join(settings.MEDIA_ROOT, image_path)
     if not os.path.isfile(image_full_path):
         return HttpResponseBadRequest('image_path is not valid')
@@ -23,10 +29,6 @@ def crop_image(image_path, cropping, type):
 
         # crop the image
         cropped_image = image.crop((x, y, x + width, y + height))
-
-        # create a new file name for the cropped image
-        file_name, ext = os.path.splitext(os.path.basename(image_path))
-        cropped_file_name = f"{file_name}_cropped{ext}"
 
         # save the cropped image to a temporary file with the new file name
         temp_file = os.path.join(settings.MEDIA_ROOT, type, cropped_file_name)
