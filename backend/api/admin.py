@@ -1,22 +1,21 @@
 # from .forms import ProcessedImageField
 from .models import SliderImage, Member, Event, SiteData, PositionCategory
 from django.contrib import admin
-from django.db import models
-from django.contrib import admin
 from image_cropping import ImageCroppingMixin
+from .forms import SliderImageForm, MemberForm, EventForm
 
 
 @admin.register(SliderImage)
 class SliderModelAdmin(ImageCroppingMixin, admin.ModelAdmin):
-    pass
+    form = SliderImageForm
 
 @admin.register(Member)
 class MemberModelAdmin(ImageCroppingMixin, admin.ModelAdmin):
-    pass
+    form = MemberForm
     
 @admin.register(Event)
 class EventModelAdmin(ImageCroppingMixin, admin.ModelAdmin):
-    pass
+    form = EventForm
 
 
 admin.site.register(PositionCategory)

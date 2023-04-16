@@ -1,25 +1,38 @@
 from django.db import models
-from image_cropping.fields import ImageCropField
 from image_cropping import ImageRatioField, ImageCroppingMixin
-from django.urls import reverse
+from django.conf import settings
+import os
 from .utils import crop_image
+
 
 class SliderImage(ImageCroppingMixin, models.Model):
     title = models.CharField(max_length=255)
     description = models.CharField(max_length=500)
     image = models.ImageField(upload_to='sliders/')
     cropping = ImageRatioField('image', '900x400', allow_fullsize=True)
-
-    @property
-    def image_url(self):
-        try:
-            if self.cropping:
-                x1, y1, x2, y2 = map(int, self.cropping.split(','))
-                return crop_image(self.image.name, f'{x1},{y1},{x2-x1},{y2-y1}', 'sliders')
-            else:
-                return self.image.url
-        except Exception as e:
-            print(e)
+    cropped_image = models.CharField(max_length=255, blank=True, null=True)
+    
+    def save(self, *args, **kwargs):
+    	if self.id:
+    		# get the old version of image
+    		old_image = SliderImage.objects.get(id=self.id).image
+    		file_name, _ = os.path.splitext(os.path.basename(old_image.name))
+    		if self.image and old_image and self.image != old_image:
+    			# delete old image
+    			for filename in os.listdir(os.path.join(settings.MEDIA_ROOT, 'sliders')):
+    				if filename.startswith(file_name):
+    					os.remove(os.path.join(settings.MEDIA_ROOT, 'sliders', filename))
+    	super(SliderImage, self).save(*args, **kwargs)
+    	self.cropped_image = crop_image(self.image.name, self.cropping, 'sliders')
+    	super(SliderImage, self).save(*args, **kwargs)
+    
+    def delete(self, *args, **kwargs):
+    	if self.image:
+    		file_name, _ = os.path.splitext(os.path.basename(self.image.name))
+    		for filename in os.listdir(os.path.join(settings.MEDIA_ROOT, 'sliders')):
+    			if filename.startswith(file_name):
+    				os.remove(os.path.join(settings.MEDIA_ROOT, 'sliders', filename))				
+    	super(SliderImage, self).delete(*args, **kwargs)
 
     def __str__(self):
         return self.title
@@ -38,17 +51,29 @@ class Member(ImageCroppingMixin, models.Model):
     linkedin_url = models.CharField(max_length=255, blank=True, null=True)
     image = models.ImageField(upload_to='members/')
     cropping = ImageRatioField('image', '200x200', allow_fullsize=True)
-
-    @property
-    def image_url(self):
-        try:
-            if self.cropping:
-                x1, y1, x2, y2 = map(int, self.cropping.split(','))
-                return crop_image(self.image.name, f'{x1},{y1},{x2-x1},{y2-y1}', 'members')
-            else:
-                return self.image.url
-        except Exception as e:
-            print(e)
+    cropped_image = models.CharField(max_length=255, blank=True, null=True)
+    
+    def save(self, *args, **kwargs):
+    	if self.id:
+    		# get the old version of image
+    		old_image = Member.objects.get(id=self.id).image
+    		file_name, _ = os.path.splitext(os.path.basename(old_image.name))
+    		if self.image and old_image and self.image != old_image:
+    			# delete old image
+    			for filename in os.listdir(os.path.join(settings.MEDIA_ROOT, 'members')):
+    				if filename.startswith(file_name):
+    					os.remove(os.path.join(settings.MEDIA_ROOT, 'members', filename))
+    	super(Member, self).save(*args, **kwargs)
+    	self.cropped_image = crop_image(self.image.name, self.cropping, 'members')
+    	super(Member, self).save(*args, **kwargs)
+    
+    def delete(self, *args, **kwargs):
+    	if self.image:
+    		file_name, _ = os.path.splitext(os.path.basename(self.image.name))
+    		for filename in os.listdir(os.path.join(settings.MEDIA_ROOT, 'members')):
+    			if filename.startswith(file_name):
+    				os.remove(os.path.join(settings.MEDIA_ROOT, 'members', filename))				
+    	super(Member, self).delete(*args, **kwargs)
 
     def __str__(self):
         return self.name
@@ -60,18 +85,30 @@ class Event(ImageCroppingMixin, models.Model):
     about = models.TextField()
     image = models.ImageField(upload_to='events/')
     cropping = ImageRatioField('image', '250x250', allow_fullsize=True)
-
-    @property
-    def image_url(self):
-        try:
-            if self.cropping:
-                x1, y1, x2, y2 = map(int, self.cropping.split(','))
-                return crop_image(self.image.name, f'{x1},{y1},{x2-x1},{y2-y1}', 'events')
-            else:
-                return self.image.url
-        except Exception as e:
-            print(e)
-
+    cropped_image = models.CharField(max_length=255, blank=True, null=True)
+    
+    def save(self, *args, **kwargs):
+    	if self.id:
+    		# get the old version of image
+    		old_image = Event.objects.get(id=self.id).image
+    		file_name, _ = os.path.splitext(os.path.basename(old_image.name))
+    		if self.image and old_image and self.image != old_image:
+    			# delete old image
+    			for filename in os.listdir(os.path.join(settings.MEDIA_ROOT, 'events')):
+    				if filename.startswith(file_name):
+    					os.remove(os.path.join(settings.MEDIA_ROOT, 'events', filename))
+    	super(Event, self).save(*args, **kwargs)
+    	self.cropped_image = crop_image(self.image.name, self.cropping, 'events')
+    	super(Event, self).save(*args, **kwargs)
+    
+    def delete(self, *args, **kwargs):
+    	if self.image:
+    		file_name, _ = os.path.splitext(os.path.basename(self.image.name))
+    		for filename in os.listdir(os.path.join(settings.MEDIA_ROOT, 'events')):
+    			if filename.startswith(file_name):
+    				os.remove(os.path.join(settings.MEDIA_ROOT, 'events', filename))				
+    	super(Event, self).delete(*args, **kwargs)
+    	
     def __str__(self):
         return self.name
 

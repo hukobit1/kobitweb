@@ -16,18 +16,11 @@ from .serializers import ( SliderImagesSerializer, MembersSerializer,
 
 class SliderImagesView(APIView):
     def get(self, request):
-        # Check if the result is already cached
-        result = cache.get('slider_images')
-        if result is not None:
-            return Response(result)
-
-        slider_images = SliderImage.objects.all()
-        if not slider_images:
-            return Response(status=status.HTTP_404_NOT_FOUND)
-        serializer = SliderImagesSerializer(slider_images, many=True)
-        # Cache the result for 5 minutes
-        cache.set('slider_images', serializer.data, 300)
-        return Response(serializer.data)
+    	slider_images = SliderImage.objects.all()
+    	if not slider_images:
+    		return Response(status=status.HTTP_404_NOT_FOUND)
+    	serializer = SliderImagesSerializer(slider_images, many=True)
+    	return Response(serializer.data)
         
 class PositionCategoriesView(APIView):
     def get(self, request):

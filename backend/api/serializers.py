@@ -9,7 +9,7 @@ class SliderImagesSerializer(serializers.ModelSerializer):
         fields = ('id', 'image_url',)
 
     def get_image_url(self, obj):
-        return obj.image_url
+        return obj.cropped_image
 
 class PositionCategoriesSerializer(serializers.ModelSerializer):
 	class Meta:
@@ -29,7 +29,7 @@ class MembersSerializer(serializers.ModelSerializer):
     	return obj.category.name
     
     def get_image_url(self, obj):
-        return obj.image_url
+        return obj.cropped_image
         
 class EventSerializer(serializers.ModelSerializer):
     image_url = serializers.SerializerMethodField()
@@ -39,7 +39,7 @@ class EventSerializer(serializers.ModelSerializer):
         fields = ('id', 'name', 'image', 'about', 'date', 'image_url',)
         
     def get_image_url(self, obj):
-        return obj.image_url
+        return obj.cropped_image
         
 class SiteDataSerializer(serializers.ModelSerializer):
     class Meta:
