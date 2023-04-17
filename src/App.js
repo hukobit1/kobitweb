@@ -10,6 +10,7 @@ import Navbar from './Components/Navbar'
 import Footer from './Components/Footer'
 import ClarificationText from './Components/ClarificationText'
 import Terms from './Components/Terms'
+import Gallery from './Components/Gallery'
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/" element={<Home />}></Route>
         <Route path="members" element={<Members />}></Route>
         <Route path="events" element={<Events />}></Route>
+        <Route path="gallery" element={<Gallery />}></Route>
         <Route
           path="kvkk-aydinlatma-metni"
           element={<ClarificationText />}

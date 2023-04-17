@@ -111,6 +111,37 @@ class Event(ImageCroppingMixin, models.Model):
     	
     def __str__(self):
         return self.name
+        
+class Gallery(ImageCroppingMixin, models.Model):
+    title = models.CharField(max_length=255)
+    image = models.ImageField(upload_to='gallery/')
+    cropping = ImageRatioField('image', '250x250', allow_fullsize=True)
+    cropped_image = models.CharField(max_length=255, blank=True, null=True)
+    
+    def save(self, *args, **kwargs):
+    	if self.id:
+    		# get the old version of image
+    		old_image = Gallery.objects.get(id=self.id).image
+    		file_name, _ = os.path.splitext(os.path.basename(old_image.name))
+    		if self.image and old_image and self.image != old_image:
+    			# delete old image
+    			for filename in os.listdir(os.path.join(settings.MEDIA_ROOT, 'gallery')):
+    				if filename.startswith(file_name):
+    					os.remove(os.path.join(settings.MEDIA_ROOT, 'gallery', filename))
+    	super(Gallery, self).save(*args, **kwargs)
+    	self.cropped_image = crop_image(self.image.name, self.cropping, 'gallery')
+    	super(Gallery, self).save(*args, **kwargs)
+    
+    def delete(self, *args, **kwargs):
+    	if self.image:
+    		file_name, _ = os.path.splitext(os.path.basename(self.image.name))
+    		for filename in os.listdir(os.path.join(settings.MEDIA_ROOT, 'gallery')):
+    			if filename.startswith(file_name):
+    				os.remove(os.path.join(settings.MEDIA_ROOT, 'gallery', filename))				
+    	super(Gallery, self).delete(*args, **kwargs)
+    	
+    def __str__(self):
+        return self.title
 
 
 class SiteData(models.Model):

@@ -90,6 +90,20 @@ function Navbar() {
                 </Link>
               </button>
             </div>
+            
+            <div
+              className="nav-link"
+              style={{ verticalAlign: 'center', color: 'blue' }}
+            >
+              <button type="button" className="btn bg-transparent">
+                <Link
+                  to="Gallery"
+                  style={{ textDecoration: 'none', color: 'black' }}
+                >
+                  Galeri
+                </Link>
+              </button>
+            </div>
 
             <div
               className="nav-link"
@@ -97,7 +111,7 @@ function Navbar() {
             >
               <a
                 className="btn btn-outline-primary"
-                href={ meta.url }
+                href={ meta.document_url }
                 role="button"
                 target="_blank"
                 rel="noreferrer"

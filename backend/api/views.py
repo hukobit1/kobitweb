@@ -2,14 +2,13 @@ from rest_framework.views import exception_handler
 from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from django.core.cache import cache
 from .models import ( SliderImage, Member, 
 		      Event, SiteData, 
-		      PositionCategory
+		      PositionCategory, Gallery
 		    )
 from .serializers import ( SliderImagesSerializer, MembersSerializer, 
 			   EventSerializer, SiteDataSerializer,
-			   PositionCategoriesSerializer
+			   PositionCategoriesSerializer, GallerySerializer
 			 )
 
 # Create your views here.
@@ -51,6 +50,14 @@ class EventsView(APIView):
         serializer = EventSerializer(events, many=True)
         return Response(serializer.data)
         
+class GalleryView(APIView):
+    def get(self, request):
+    	gallery = Gallery.objects.all()
+    	if not gallery:
+    		return Response(status=status.HTTP_404_NOT_FOUND)
+    	serializer = GallerySerializer(gallery, many=True)
+    	return Response(serializer.data)
+        
 
 class SiteDataView(APIView):
     def get(self, request):
@@ -64,5 +71,5 @@ class SiteDataView(APIView):
 def custom_exception_handler(exc, context):
     response = exception_handler(exc, context)
     if response is None:
-        return Response({'error': 'Not found'}, status=status.HTTP_404_NOT_FOUND)
+        return Response({'error': exc}, status=status.HTTP_404_NOT_FOUND)
     return response

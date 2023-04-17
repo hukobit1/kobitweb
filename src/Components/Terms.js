@@ -25,7 +25,7 @@ function Terms(params) {
         </div>
       </section>
       <section class="section-articlesdetail p-5">
-        { meta.terms }
+        { meta.contract }
       </section>
       {/* <!-- // AB-Test stickyFooterBannerGuestTest --> */}
     </main>

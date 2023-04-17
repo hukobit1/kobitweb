@@ -38,7 +38,7 @@ function Footer() {
               <div className="col" style={{ maxWidth: '46px' }}>
                 <button type="button" className="btn btn-secondary">
                   <a
-                    href="https://twitter.com/"
+                    href={ meta.twitter_url }
                     className="link-dark"
                     target="_blank"
                     rel="noreferrer"
@@ -59,7 +59,7 @@ function Footer() {
               <div className="col" style={{ maxWidth: '46px' }}>
                 <button type="button" className="btn btn-secondary">
                   <a
-                    href="https://www.linkedin.com/company/konumsalbilgihacettepe/?originalSubdomain=br"
+                    href= { meta.linkedin_url }
                     className="link-dark"
                     target="_blank"
                     rel="noreferrer"
@@ -80,7 +80,7 @@ function Footer() {
               <div className="col" style={{ maxWidth: '46px' }}>
                 <button type="button" className="btn btn-secondary">
                   <a
-                    href="https://www.instagram.com/konumsalbilgi/"
+                    href= { meta.instagram_url }
                     className="link-dark"
                     target="_blank"
                     rel="noreferrer"
@@ -101,7 +101,7 @@ function Footer() {
               <div className="col" style={{ maxWidth: '46px' }}>
                 <button type="button" className="btn btn-secondary">
                   <a
-                    href="https://github.com/fioresglobal/hukobit.github.io"
+                    href={ meta.github_url }
                     className="link-dark"
                     target="_blank"
                     rel="noreferrer"
@@ -122,7 +122,7 @@ function Footer() {
               <div className="col" style={{ maxWidth: '46px' }}>
                 <button type="button" className="btn btn-secondary">
                   <a
-                    href="https://discord.gg/E2zAD5BtgT"
+                    href={ meta.discord_url }
                     className="link-dark"
                     target="_blank"
                     rel="noreferrer"
