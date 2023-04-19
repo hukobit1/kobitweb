@@ -46,15 +46,19 @@ class EventSerializer(serializers.ModelSerializer):
 class SiteDataSerializer(serializers.ModelSerializer):
     class Meta:
         model = SiteData
-        fields = ('id', 'document_url', 'email', 'contract', 'linkedin_url', 'github_url', 'twitter_url', 'discord_url', 'instagram_url')
+        fields = ('id', 'document_url', 'gallery_header', 'email', 'contract', 'linkedin_url', 'github_url', 'twitter_url', 'discord_url', 'instagram_url',)
         
         
 class GallerySerializer(serializers.ModelSerializer):
     image_url = serializers.SerializerMethodField()
+    cover_url = serializers.SerializerMethodField()
 
     class Meta:
         model = Gallery
-        fields = ('id', 'title', 'image_url',)
+        fields = ('id', 'title', 'image_url', 'cover_url',)
         
     def get_image_url(self, obj):
         return obj.cropped_image
+        
+    def get_cover_url(self, obj):
+    	return obj.cropped_cover

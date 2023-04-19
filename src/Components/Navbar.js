@@ -1,22 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import SitedataContext from './SitedataContext';
 import { Link } from 'react-router-dom'
-
 import logo from '../Assets/Images/Logo/Logo_70q.webp'
 
-function Navbar() {
-  const [meta, setMeta] = useState({});
-  const apiUrl = process.env.REACT_APP_API_ENDPOINT;
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch(`${apiUrl}/api/v1/meta/?format=json` , { mode: "cors" } );
-      const data = await response.json();
-      // Sort users by category
-      setMeta(data);
-    };
-
-    fetchData();
-  }, []);
+function Navbar(props) {
+  const { meta } = props; 
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">

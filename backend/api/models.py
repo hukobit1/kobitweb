@@ -115,8 +115,10 @@ class Event(ImageCroppingMixin, models.Model):
 class Gallery(ImageCroppingMixin, models.Model):
     title = models.CharField(max_length=255)
     image = models.ImageField(upload_to='gallery/')
-    cropping = ImageRatioField('image', '250x250', allow_fullsize=True)
+    image_cropping = ImageRatioField('image', '1000x1000', allow_fullsize=True, free_crop=True)
+    cover_cropping = ImageRatioField('image', '300x300', allow_fullsize=True)
     cropped_image = models.CharField(max_length=255, blank=True, null=True)
+    cropped_cover = models.CharField(max_length=255, blank=True, null=True)
     
     def save(self, *args, **kwargs):
     	if self.id:
@@ -128,8 +130,12 @@ class Gallery(ImageCroppingMixin, models.Model):
     			for filename in os.listdir(os.path.join(settings.MEDIA_ROOT, 'gallery')):
     				if filename.startswith(file_name):
     					os.remove(os.path.join(settings.MEDIA_ROOT, 'gallery', filename))
+    			for filename in os.listdir(os.path.join(settings.MEDIA_ROOT, 'gallery/cover')):
+    				if filename.startswith(file_name):
+    					os.remove(os.path.join(settings.MEDIA_ROOT, 'gallery/cover', filename))
     	super(Gallery, self).save(*args, **kwargs)
-    	self.cropped_image = crop_image(self.image.name, self.cropping, 'gallery')
+    	self.cropped_image = crop_image(self.image.name, self.image_cropping, 'gallery')
+    	self.cropped_cover = crop_image(self.image.name, self.cover_cropping, 'gallery/cover')
     	super(Gallery, self).save(*args, **kwargs)
     
     def delete(self, *args, **kwargs):
@@ -137,7 +143,10 @@ class Gallery(ImageCroppingMixin, models.Model):
     		file_name, _ = os.path.splitext(os.path.basename(self.image.name))
     		for filename in os.listdir(os.path.join(settings.MEDIA_ROOT, 'gallery')):
     			if filename.startswith(file_name):
-    				os.remove(os.path.join(settings.MEDIA_ROOT, 'gallery', filename))				
+    				os.remove(os.path.join(settings.MEDIA_ROOT, 'gallery', filename))
+    		for filename in os.listdir(os.path.join(settings.MEDIA_ROOT, 'gallery/cover')):
+    			if filename.startswith(file_name):
+    				os.remove(os.path.join(settings.MEDIA_ROOT, 'gallery/cover', filename))		
     	super(Gallery, self).delete(*args, **kwargs)
     	
     def __str__(self):
@@ -147,12 +156,13 @@ class Gallery(ImageCroppingMixin, models.Model):
 class SiteData(models.Model):
     document_url = models.CharField(max_length=500)
     email = models.CharField(max_length=500)
-    contract = models.TextField()
+    gallery_header = models.CharField(max_length=500)
     linkedin_url = models.CharField(max_length=255)
     twitter_url = models.CharField(max_length=255)
     instagram_url = models.CharField(max_length=255)
     github_url = models.CharField(max_length=255)
     discord_url = models.CharField(max_length=255)
+    contract = models.TextField()
 
     def __str__(self):
         return "Site Data"

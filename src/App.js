@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 // import EventsPage from './Pages/EventsPage'
@@ -13,14 +13,28 @@ import Terms from './Components/Terms'
 import Gallery from './Components/Gallery'
 
 function App() {
+  const [meta, setMeta] = useState({});
+  const apiUrl = process.env.REACT_APP_API_ENDPOINT;
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch(`${apiUrl}/api/v1/meta/?format=json` , { mode: "cors" } );
+      const data = await response.json();
+      // Sort users by category
+      setMeta(data);
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <BrowserRouter>
-      <Navbar />
+      <Navbar  meta={meta}/>
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="members" element={<Members />}></Route>
         <Route path="events" element={<Events />}></Route>
-        <Route path="gallery" element={<Gallery />}></Route>
+        <Route path="gallery" element={<Gallery meta={meta} />}></Route>
         <Route
           path="kvkk-aydinlatma-metni"
           element={<ClarificationText />}
@@ -28,7 +42,7 @@ function App() {
         <Route path="terms" element={<Terms />}></Route>
         <Route path="*" element={<ErrorPage />}></Route>
       </Routes>
-      <Footer />
+      <Footer meta={meta} />
     </BrowserRouter>
   )
 }

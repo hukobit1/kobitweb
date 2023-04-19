@@ -3,6 +3,9 @@
   grid-template-columns: 1fr;
   grid-gap: 30px;
   margin: 50px auto;
+  background-color: rgba(248, 249, 250, 1);
+  border-radius: .25rem;
+  padding: 25px;
 }
 
 .gallery > .image > img:hover {
@@ -19,19 +22,27 @@
   display: none;
 }
 
+.full-image {
+  display: none;
+}
+
 .gallery > .image:hover {
-  transform: scale(1.5,1.5);
+  transform: scale(1.3, 1.3);
   transition: .3s transform;
 }
 
-.gallery > .image:hover img {
-  height: 100%;	
+.gallery > .image:hover .cover {
+  display: none;
+}
+
+.gallery > .image:hover .full-image{
+  display: block;
+  height: 100%;
 }
 
 .gallery > .image:hover h5 {
   display: block;
 }
-
 
 @media screen and (min-width: 768px) {
   .gallery {

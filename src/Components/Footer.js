@@ -1,19 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useContext } from 'react';
 
-function Footer() {
-  const [meta, setMeta] = useState({});
+function Footer(props) {
+  const { meta } = props; 
   const apiUrl = process.env.REACT_APP_API_ENDPOINT;
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch(`${apiUrl}/api/v1/meta/?format=json`, { mode: "cors" } );
-      const data = await response.json();
-      // Sort users by category
-      setMeta(data);
-    };
-
-    fetchData();
-  }, []);
   
   return (
     <footer className="bg-dark text-center text-white mt-4">

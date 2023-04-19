@@ -36,4 +36,5 @@ class GalleryForm(forms.ModelForm):
 	        fields = '__all__'
 	        widgets = {
 	            'cropped_image': forms.HiddenInput,
+	            'cropped_cover': forms.HiddenInput,
 	        }
