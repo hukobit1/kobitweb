@@ -116,7 +116,7 @@ class Gallery(ImageCroppingMixin, models.Model):
     title = models.CharField(max_length=255)
     image = models.ImageField(upload_to='gallery/')
     image_cropping = ImageRatioField('image', '1000x1000', allow_fullsize=True, free_crop=True)
-    cover_cropping = ImageRatioField('image', '300x300', allow_fullsize=True)
+    cover_cropping = ImageRatioField('image', '300x300', allow_fullsize=False)
     cropped_image = models.CharField(max_length=255, blank=True, null=True)
     cropped_cover = models.CharField(max_length=255, blank=True, null=True)
     
@@ -130,12 +130,12 @@ class Gallery(ImageCroppingMixin, models.Model):
     			for filename in os.listdir(os.path.join(settings.MEDIA_ROOT, 'gallery')):
     				if filename.startswith(file_name):
     					os.remove(os.path.join(settings.MEDIA_ROOT, 'gallery', filename))
-    			for filename in os.listdir(os.path.join(settings.MEDIA_ROOT, 'gallery/cover')):
+    			for filename in os.listdir(os.path.join(settings.MEDIA_ROOT, 'cover')):
     				if filename.startswith(file_name):
-    					os.remove(os.path.join(settings.MEDIA_ROOT, 'gallery/cover', filename))
+    					os.remove(os.path.join(settings.MEDIA_ROOT, 'cover', filename))
     	super(Gallery, self).save(*args, **kwargs)
     	self.cropped_image = crop_image(self.image.name, self.image_cropping, 'gallery')
-    	self.cropped_cover = crop_image(self.image.name, self.cover_cropping, 'gallery/cover')
+    	self.cropped_cover = crop_image(self.image.name, self.cover_cropping, 'cover')
     	super(Gallery, self).save(*args, **kwargs)
     
     def delete(self, *args, **kwargs):
@@ -144,9 +144,9 @@ class Gallery(ImageCroppingMixin, models.Model):
     		for filename in os.listdir(os.path.join(settings.MEDIA_ROOT, 'gallery')):
     			if filename.startswith(file_name):
     				os.remove(os.path.join(settings.MEDIA_ROOT, 'gallery', filename))
-    		for filename in os.listdir(os.path.join(settings.MEDIA_ROOT, 'gallery/cover')):
+    		for filename in os.listdir(os.path.join(settings.MEDIA_ROOT, 'cover')):
     			if filename.startswith(file_name):
-    				os.remove(os.path.join(settings.MEDIA_ROOT, 'gallery/cover', filename))		
+    				os.remove(os.path.join(settings.MEDIA_ROOT, 'cover', filename))		
     	super(Gallery, self).delete(*args, **kwargs)
     	
     def __str__(self):
