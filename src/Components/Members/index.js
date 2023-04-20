@@ -27,11 +27,11 @@ const App = () => {
     		<div key={index}>
     			{ category.users.length > 0 && (
     				<div className="text-opacity-75 text-center">
-      				<h1 className="text-center display-2 category-name">
-        				{ category.name }
-        				<hr />
-      				</h1>
-    			</div>
+      					<h1 className="text-center display-2 category-name">
+        					{ category.name }
+        					<hr />
+      					</h1>
+    				</div>
     			)}
     			{ <UserList users={ category.users } /> }
     		</div>

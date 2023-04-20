@@ -77,8 +77,8 @@ function MainContent() {
       </div>
       <div className="contanier-fluid text-justify"></div>
       <div className="container text-justify">
-        <div className="row">
-          <div className="col order-2">
+        <div className="row gy-3">
+          <div className="col-12 col-md-4 order-2">
             <ul className="list-group w-70">
               <li className="list-group-item list-group-item-info">
                 <strong> Topluluğumuzun Yaptığı Çalışmalar </strong>
@@ -101,7 +101,7 @@ function MainContent() {
               </li>
             </ul>
           </div>
-          <div className="col order-1">
+          <div className="col-12 col-md-4 order-1">
             <ul className="list-group w-70">
               <li className="list-group-item list-group-item-info">
                 <strong>Topluluğumuzu Oluşturan Departmanlar</strong>
@@ -117,7 +117,7 @@ function MainContent() {
               <li className="list-group-item">Uluslararası İlişkiler Birimi</li>
             </ul>
           </div>
-          <div className="col order-3">
+          <div className="col-12 col-md-4 order-3">
             <ul className="list-group w-70">
               <li className="list-group-item list-group-item-info">
                 <strong>Topluluğumuzla Alakalı Alanlar</strong>
