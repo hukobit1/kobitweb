@@ -116,7 +116,7 @@ class Gallery(ImageCroppingMixin, models.Model):
     title = models.CharField(max_length=255)
     image = models.ImageField(upload_to='gallery/')
     image_cropping = ImageRatioField('image', '1000x1000', allow_fullsize=True, free_crop=True)
-    cover_cropping = ImageRatioField('image', '1000x1000', allow_fullsize=True)
+    cover_cropping = ImageRatioField('image', '327x300', allow_fullsize=True)
     cropped_image = models.CharField(max_length=255, blank=True, null=True)
     cropped_cover = models.CharField(max_length=255, blank=True, null=True)
     
