@@ -18,9 +18,9 @@ function Navbar(props) {
               height="70"
               className="rounded mx-auto d-inline-block mainLogo"
             />
-            <h3 className="d-inline-block brandName">
+            {/*<h3 className="d-inline-block brandName">
               Konumsal Bilgi Topluluğu
-            </h3>
+            </h3>*/}
           </div>
         </Link>
         <button

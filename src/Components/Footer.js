@@ -194,7 +194,7 @@ function Footer(props) {
           </div>
           <div className="col-lg-3 col-md-auto mb-4 mb-md-0 align-self-end" >
               <a href="/terms" className='contract-btn'>
-                UYELI AYDINLATMA METNI
+                Üyelik Aydınlatma Metni
               </a>
             </div>
         </section>

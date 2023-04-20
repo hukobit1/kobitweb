@@ -30,7 +30,7 @@ function Events(props) {
     	<div className="container gallery">  
         	{images.map((image) => (
         	  <div className="image">
-        	      <h5>{ image.title }</h5>
+        	  	<h5>{ image.title }</h5>
         	        <img
         	           src={ apiUrl + image.cover_url }
         	           alt="{ image.title }"
