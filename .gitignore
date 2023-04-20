@@ -30,3 +30,6 @@ yarn-error.log*
 # virtual environment
 /virtualenv
 /venv
+
+# database
+db*
