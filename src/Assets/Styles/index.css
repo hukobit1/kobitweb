@@ -111,14 +111,31 @@ p {
   }
 }
 
+
+@media screen and (max-width: 500px) {
+  .iframe {
+    height: 125px;
+  }
+
+  .meta {
+    font-size: 8px;
+    padding: 0px;
+  }
+
+  footer h5 {
+    font-size: 16px;
+  }
+}
+
+
 @media screen and (min-width: 768px) {
-  .footer {
+  footer {
     position: relative;
   }
 
   .contract-btn {
     position: absolute;
-    bottom: 10px;
-    right: -50px;
+    bottom: 20px;
+    right: 50px;
   }
 }
