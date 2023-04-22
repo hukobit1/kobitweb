@@ -32,4 +32,4 @@ yarn-error.log*
 /venv
 
 # database
-db*
+dbsqlite3
