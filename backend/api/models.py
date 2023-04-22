@@ -79,7 +79,6 @@ class Member(ImageCroppingMixin, models.Model):
         return self.name
 
 class Event(ImageCroppingMixin, models.Model):
-    id = models.CharField(max_length=255, primary_key=True)
     name = models.CharField(max_length=255)
     date = models.DateTimeField()
     about = models.TextField()

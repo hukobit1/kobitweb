@@ -22,13 +22,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.urandom(32)
-
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
+# SECURITY WARNING: don't run with debug turned on in production!
 
-ALLOWED_HOSTS = ['hukobit.com', 'www.hukobit.com', 'api.hukobit.com']
-
-
+ALLOWED_HOSTS = ['hukobit.com', 'www.hukobit.com', 'admin.hukobit.com']
+CSRF_TRUSTED_ORIGINS = ["https://admin.hukobit.com"]
 # Application definition
 
 INSTALLED_APPS = [
@@ -62,6 +60,8 @@ MIDDLEWARE = [
 
 CORS_ORIGIN_WHITELIST = [
 	"https://hukobit.com",
+    "https://api.hukobit.com",
+    "https://www.hukobit.com"
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True
@@ -97,10 +97,21 @@ WSGI_APPLICATION = 'hukobit.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': BASE_DIR / 'db.sqlite3',
+#    }
+#}
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'hukobit',
+        'USER': 'fioresglobal',
+        'PASSWORD': 'fioresglobal2323!',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 

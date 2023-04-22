@@ -13,7 +13,7 @@ function Footer(props) {
               <div className="col" style={{ maxWidth: '46px' }}>
                 <button type="button" className="btn btn-secondary">
                   <a
-                    href={ meta.email }
+                    href={ `mailto:${meta.email}` }
                     className="link-dark"
                     target="_blank"
                     rel="noreferrer"
