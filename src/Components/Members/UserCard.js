@@ -1,14 +1,29 @@
-import React from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import { Card, Col } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
 const UserCard = ({ user }) => {
+  const imageRef = useRef(null);
+  const [imageHeight, setImageHeight] = useState(0);
   const apiUrl = process.env.REACT_APP_API_ENDPOINT;
+  
+  useEffect(() => {
+  	setImageHeight(imageRef.current.offsetWidth);
+  }, [])
+  
+  const handleResize = () => {
+  	setImageHeight(imageRef.current.offsetWidth);
+  }
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [])
+
   return (
     <Col xs={6} sm={4} lg={3} className="p-2 p-md-3 p-xl-4">
       <Card>
-        <Card.Img variant="top" src={ apiUrl + user.image_url } className="member-image" />
+        <Card.Img ref={imageRef} variant="top" src={ apiUrl + user.image_url } style={{ width: '100%', height: imageHeight, objectFit: 'cover' }} />
         <Card.Body>
           <div
             style={{

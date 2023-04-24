@@ -24,14 +24,14 @@ function Event(props) {
           <a
             className="btn btn-primary mt-auto"
             data-bs-toggle="collapse"
-            href={'#' + props.id}
+            href={'#' + props.identifier}
             role="button"
             aria-expanded="false"
-            aria-controls={props.id}
+            aria-controls={props.identifier}
           >
             ETKİNLİK DETAY
           </a>
-          <div id={props.id} className="collapse">
+          <div id={props.identifier} className="collapse">
             <hr />
             {props.about}
           </div>

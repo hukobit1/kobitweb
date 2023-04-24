@@ -75,10 +75,6 @@ p {
   height: auto;
 }
 
-.member-image {
-  width: 100%;
-  height: auto;
-}
 
 .category-name {
 	text-transform: uppercase;
@@ -96,8 +92,34 @@ p {
 }
 
 .contract-btn:hover {
-	color: #212529;
+  color: #212529;
 }
+
+.section-articlesdetail {
+  padding: 25px !important;
+}
+
+contract h1 {
+  font-size: 20px;
+  text-align: center;
+  font-weight: bold !important;
+  margin-bottom: 20px;
+}
+    	
+.contract h2 {
+  font-size: 14px; 
+  font-weight: bold !important;
+}
+    	
+.bold {
+  font-weight: bold;
+}
+
+.h5 {
+  font-size: 1.0rem;
+}
+    	
+    	
 
 @keyframes move_left {
   0% {
@@ -137,5 +159,21 @@ p {
     position: absolute;
     bottom: 20px;
     right: 50px;
+  }
+  
+  .section-articlesdetail {
+    padding: 50px 75px !important;
+  }
+  
+  .contract h1 {
+    font-size: 30px;
+   }
+    		
+  .contract h2 {
+    font-size: 20px; 
+   }
+   
+   .h5 {
+    font-size: 1.25rem;
   }
 }

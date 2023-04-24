@@ -11,6 +11,15 @@ class SliderImage(ImageCroppingMixin, models.Model):
     image = models.ImageField(upload_to='sliders/')
     cropping = ImageRatioField('image', '900x400', allow_fullsize=True)
     cropped_image = models.CharField(max_length=255, blank=True, null=True)
+    my_order = models.PositiveIntegerField(
+    	default=0,
+    	blank=False,
+    	null=False,
+    	db_index=True
+    )
+    
+    class Meta:
+    	ordering = ['my_order']
     
     def save(self, *args, **kwargs):
     	if self.id:
@@ -40,6 +49,15 @@ class SliderImage(ImageCroppingMixin, models.Model):
 
 class PositionCategory(models.Model):
     name = models.CharField(max_length=250)
+    my_order = models.PositiveIntegerField(
+    	default=0,
+    	blank=False,
+    	null=False,
+    	db_index=True
+    )
+    
+    class Meta:
+    	ordering = ['my_order']
 
     def __str__(self):
         return self.name
@@ -52,6 +70,15 @@ class Member(ImageCroppingMixin, models.Model):
     image = models.ImageField(upload_to='members/')
     cropping = ImageRatioField('image', '200x200', allow_fullsize=True)
     cropped_image = models.CharField(max_length=255, blank=True, null=True)
+    my_order = models.PositiveIntegerField(
+    	default=0,
+    	blank=False,
+    	null=False,
+    	db_index=True
+    )
+    
+    class Meta:
+    	ordering = ['my_order']
     
     def save(self, *args, **kwargs):
     	if self.id:
@@ -79,12 +106,22 @@ class Member(ImageCroppingMixin, models.Model):
         return self.name
 
 class Event(ImageCroppingMixin, models.Model):
+    identifier = models.CharField(max_length=255)
     name = models.CharField(max_length=255)
-    date = models.DateTimeField()
+    date = models.DateField()
     about = models.TextField()
     image = models.ImageField(upload_to='events/')
     cropping = ImageRatioField('image', '250x250', allow_fullsize=True)
     cropped_image = models.CharField(max_length=255, blank=True, null=True)
+    my_order = models.PositiveIntegerField(
+    	default=0,
+    	blank=False,
+    	null=False,
+    	db_index=True
+    )
+    
+    class Meta:
+    	ordering = ['my_order']
     
     def save(self, *args, **kwargs):
     	if self.id:
@@ -118,6 +155,15 @@ class Gallery(ImageCroppingMixin, models.Model):
     cover_cropping = ImageRatioField('image', '1000x1000', allow_fullsize=True)
     cropped_image = models.CharField(max_length=255, blank=True, null=True)
     cropped_cover = models.CharField(max_length=255, blank=True, null=True)
+    my_order = models.PositiveIntegerField(
+    	default=0,
+    	blank=False,
+    	null=False,
+    	db_index=True
+    )
+    
+    class Meta:
+    	ordering = ['my_order']
     
     def save(self, *args, **kwargs):
     	if self.id:
@@ -157,7 +203,6 @@ class SiteData(models.Model):
     email = models.CharField(max_length=500)
     gallery_header = models.CharField(max_length=500)
     linkedin_url = models.CharField(max_length=255)
-    twitter_url = models.CharField(max_length=255)
     instagram_url = models.CharField(max_length=255)
     github_url = models.CharField(max_length=255)
     discord_url = models.CharField(max_length=255)

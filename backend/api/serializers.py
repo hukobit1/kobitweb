@@ -38,7 +38,7 @@ class EventSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Event
-        fields = ('id', 'name', 'about', 'date', 'image_url',)
+        fields = ('identifier', 'name', 'about', 'date', 'image_url',)
         
     def get_image_url(self, obj):
         return obj.cropped_image

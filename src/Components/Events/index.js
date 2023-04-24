@@ -29,12 +29,12 @@ function Events() {
       <div className="row gx-5 justify-content-center">
         {events.map((event) => (
           <Event
-            key={event.id}
+            key={event.identifier}
             name={event.name}
             date={event.date}
             about={event.about}
             url={event.image_url }
-            id={event.id}
+            identifier={event.identifier}
           />
         ))}
       </div>

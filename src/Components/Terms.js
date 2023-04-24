@@ -16,18 +16,10 @@ function Terms(params) {
   }, []);
 
   return (
-    <main role="main" class="">
-      <section class="section-oldfeatured js-section-featured section-featured-article">
-        <div class="">
-          <div class="line">
-            <div class="column one one"></div>
-          </div>
-        </div>
+    <main role="main">
+      <section className="section-articlesdetail p-5">
+        <div dangerouslySetInnerHTML={{ __html: meta.contract  }} />
       </section>
-      <section class="section-articlesdetail p-5">
-        { meta.contract }
-      </section>
-      {/* <!-- // AB-Test stickyFooterBannerGuestTest --> */}
     </main>
   )
 }

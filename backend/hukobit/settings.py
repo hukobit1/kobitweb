@@ -11,8 +11,11 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 import os
+import dotenv
 from pathlib import Path
 
+
+dotenv.load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -22,19 +25,26 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.urandom(32)
-DEBUG = False
-# SECURITY WARNING: don't run with debug turned on in production!
 
-ALLOWED_HOSTS = ['hukobit.com', 'www.hukobit.com', 'admin.hukobit.com']
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = os.environ.get('DEBUG')
+
+ALLOWED_HOSTS = ['hukobit.com', 'www.hukobit.com', 'admin.hukobit.com' ]
+
 CSRF_TRUSTED_ORIGINS = ["https://admin.hukobit.com"]
+
 # Application definition
 
 INSTALLED_APPS = [
+    # custom apps
     'api',
     'imagekit',
     'image_cropping',
     'easy_thumbnails',
     'corsheaders',
+    'adminsortable2',
+    
+    # default apps
     'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -59,12 +69,11 @@ MIDDLEWARE = [
 ]
 
 CORS_ORIGIN_WHITELIST = [
-	"https://hukobit.com",
-    "https://api.hukobit.com",
-    "https://www.hukobit.com"
+    "https://hukobit.com",
+    "https://www.hukobit.com",
 ]
 
-CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_ALL_ORIGINS = False
 
 ROOT_URLCONF = 'hukobit.urls'
 
@@ -97,22 +106,15 @@ WSGI_APPLICATION = 'hukobit.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': BASE_DIR / 'db.sqlite3',
-#    }
-#}
-
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'hukobit',
-        'USER': 'fioresglobal',
-        'PASSWORD': 'fioresglobal2323!',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
+	'default': {
+       		'ENGINE': 'django.db.backends.postgresql',
+      		'NAME': os.environ.get('DATABASE_NAME'),
+      		'USER':  os.environ.get('DATABASE_USER'),
+      		'PASSWORD': os.environ.get('DATABASE_PASSWORD'),
+      		'HOST': 'localhost',
+       		'PORT': '5432',
+    	}
 }
 
 
@@ -156,11 +158,14 @@ THUMBNAIL_BACKENDS = ['image_cropping.backends.easy_thumbs.EasyThumbnailsBackend
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-
 STATIC_URL = '/static/'
-MEDIA_URL = '/media/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+# Media files (Images)
+
+MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 

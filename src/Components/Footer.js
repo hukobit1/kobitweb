@@ -10,7 +10,7 @@ function Footer(props) {
         <section className="mb-2 mb-md-4">
           <div className="container">
             <div className="row justify-content-center">
-              <div className="col" style={{ maxWidth: '46px' }}>
+              <div className="col" style={{ maxWidth: '46px', padding: '0px' }}>
                 <button type="button" className="btn btn-secondary">
                   <a
                     href={ `mailto:${meta.email}` }
@@ -31,7 +31,7 @@ function Footer(props) {
                   </a>
                 </button>
               </div>
-              <div className="col" style={{ maxWidth: '46px' }}>
+              <div className="col" style={{ maxWidth: '46px', padding: '0px' }}>
                 <button type="button" className="btn btn-secondary">
                   <a
                     href= { meta.linkedin_url }
@@ -52,7 +52,7 @@ function Footer(props) {
                   </a>
                 </button>
               </div>
-              <div className="col" style={{ maxWidth: '46px' }}>
+              <div className="col" style={{ maxWidth: '46px', padding: '0px' }}>
                 <button type="button" className="btn btn-secondary">
                   <a
                     href= { meta.instagram_url }
@@ -73,7 +73,7 @@ function Footer(props) {
                   </a>
                 </button>
               </div>
-              <div className="col" style={{ maxWidth: '46px' }}>
+              <div className="col" style={{ maxWidth: '46px', padding: '0px' }}>
                 <button type="button" className="btn btn-secondary">
                   <a
                     href={ meta.github_url }
@@ -94,7 +94,7 @@ function Footer(props) {
                   </a>
                 </button>
               </div>
-              <div className="col" style={{ maxWidth: '46px' }}>
+              <div className="col" style={{ maxWidth: '46px', padding: '0px' }}>
                 <button type="button" className="btn btn-secondary">
                   <a
                     href={ meta.discord_url }
@@ -124,8 +124,8 @@ function Footer(props) {
           </h5>
         </section>
         <section>
-          <div className="row justify-content-center d-flex align-items-center">
-            <div className="col-lg-auto col-md-auto mb-1 mb-md-4 mb-md-0 ">
+          <div className="row justify-content-center d-flex align-items-center" >
+            <div className="col-lg-auto col-md-auto mb-1 mb-md-4 mb-md-0 " >
               <section className="embed-responsive embed-responsive-1by1">
                 <iframe
                   title="google frame"
@@ -138,7 +138,7 @@ function Footer(props) {
                 ></iframe>
               </section>
             </div>
-            <div className="col-lg-4 col-md-auto mb-4 mb-md-0">
+            <div className="col-lg-4 col-md-auto mb-3 mb-md-4" >
               <ul className="list-group">
                 <li className="list-group-item meta">
                   <svg
